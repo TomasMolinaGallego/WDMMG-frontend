@@ -1,0 +1,28 @@
+<div class="container">
+  <br>
+  <div class="buttons-container">
+    <div *ngFor="let button of buttons">
+      <button type="button" class="btn" (click)="toggleDiv(button.action)">{{ button.text }}</button>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <br>
+
+  <div *ngIf="divStates['showSubmitMovimiento']">
+    <app-submit-movement></app-submit-movement>
+  </div>
+
+  <div *ngIf="divStates['showMovimientos']">
+    <app-show-movement [mode]="'all'"></app-show-movement>
+  </div>
+
+  <div *ngIf="divStates['showMovimientosUltimoMes']">
+    <app-show-movement [mode]="'actual'"></app-show-movement>
+  </div>
+
+  <div *ngIf="divStates['showMovimientosMes']">
+    <app-show-movement-with-date-selector></app-show-movement-with-date-selector>
+  </div>
+
+
+</div>

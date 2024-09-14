@@ -1,0 +1,65 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="form-group">
+      <label for="form"><h4>Concepto</h4></label>
+      <br>
+      <select #reason (change)="onSelected(reason)" value="reason">
+        <option default> Ocio </option>
+        <option>Trabajo</option>
+        <option>Deporte</option>
+        <option>Salud</option>
+        <option>Capricho</option>
+        <option>Inversion</option>
+        <option>Comida</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="form"><h4>Subconcepto</h4></label>
+      <input name="subreason" type="text" class="form-control" id="subreason" [(ngModel)]="movimiento.subreason"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="form"><h4>Cantidad</h4></label>
+      <input name="quantity" type="number" class="form-control" id="quantity" [(ngModel)]="movimiento.quantity"
+        placeholder="0" required>
+    </div>
+    <div class="form-group">
+      <label for="form"><h4>¿Gasto o ingreso?</h4></label>
+      <br>
+      <div class="input-container">
+        <div class="input-group">
+          <label class="label-input" for="negative">Negativo</label>
+          <input (change)="changeValueNegative()" name="negative" type="checkbox" class="form-control" id="negative" [(ngModel)]="isNegative">
+        </div>
+        <div class="input-group">
+          <label class="label-input" for="positive">Positivo</label>
+          <input (change)="changeValuePositive()" name="positive" type="checkbox" class="form-control" id="positive" [(ngModel)]="isPositive">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-container">
+        <div class="input-group">
+      <label for="form">¿El gasto ha sido necesario? Marcar "Sí", desmarcado "No"</label>
+      <input name="necessary" type="checkbox"  class="form-control" id="necessary" [(ngModel)]="movimiento.necessary"
+        required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="form"><h4>Fecha del gasto</h4></label>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Selecciona una fecha</mat-label>
+        <input name="date" matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="selectedDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      {{mensaje}}
+    </div>
+    <br>
+    <div class="center">
+      <button style="width:100px;height:40px;" type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>

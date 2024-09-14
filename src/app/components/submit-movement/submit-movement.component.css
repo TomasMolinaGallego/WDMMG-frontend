@@ -1,0 +1,14 @@
+.input-container {
+    display: flex;
+    gap: 20px; /* Espacio entre los grupos de inputs */
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  label {
+  font-weight: normal;
+}

@@ -1,0 +1,12 @@
+<button (click)="toggleMonthPicker()">Mostrar/Ocultar selector de mes</button>
+    <div *ngIf="showMonthPicker">
+      <mat-form-field>
+        <mat-label>yyyy/mm</mat-label>
+        <input #dpInput matInput [matDatepicker]="dp" placeholder="datepicker">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp (monthSelected)="monthSelected($event, dp, dpInput)" startView="year" placeholder="2024/01"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div *ngIf="isDateSelected">
+      <app-show-movement [mode]="'date'" [desiredDate]="date"></app-show-movement>
+    </div>
